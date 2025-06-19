@@ -76,7 +76,7 @@ const Create_blog = () => {
         setLoading(false)
     }
   };
-  
+
 
   return (
     <>

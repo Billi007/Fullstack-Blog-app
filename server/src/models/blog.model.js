@@ -18,7 +18,6 @@ const BlogSchema = new Schema({
     content: {
         type: String,
         required: [true, 'Please enter the content.'],
-        maxLength: [10000, 'Content cannot exceed 1000 characters']
     },
      isVisible: {
         type: Boolean,

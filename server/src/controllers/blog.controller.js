@@ -142,7 +142,7 @@ const updateBlog = async function (req, res) {
     const updateData = {
       ...(title && { title }),
       ...(content && { content }),
-       ...(description && { description }),
+      ...(description && { description }),
       ...(typeof isPublished === "boolean" && { isPublished }),
       ...(featuredImage && { featuredImage }),
       ...(isPublished && { publishedAt: new Date() }), // Update publish timestamp

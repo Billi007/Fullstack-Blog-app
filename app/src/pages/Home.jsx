@@ -18,7 +18,7 @@ const Home = () => {
         });
         setBlogs(res.data.data);
         setUser(user)
-        console.log("Fetched blogs:", res.data.data);
+        //console.log("Fetched blogs:", res.data.data);
 
       } catch (err) {
         console.error("Error fetching blogs:", err);

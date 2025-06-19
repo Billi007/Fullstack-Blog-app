@@ -14,7 +14,7 @@ function App() {
   const SignUp = lazy(() => import('./pages/SignUp'))
   const Create_blog = lazy(() => import('./pages/Create_blog'))
   const Blog = lazy(() => import('./pages/Blog'))
-  const Dashboard = lazy(() => import('./pages/Dashboard'))
+  const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'))
 
   const {user} = useContext(UserContext)
 

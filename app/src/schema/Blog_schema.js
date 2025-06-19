@@ -4,12 +4,11 @@ const blogSchema = yup.object().shape({
   title: yup
   .string()
   .required("Title is required")
-  .max(50),
+  .max(100),
 
   content: yup
   .string()
-  .required("Content is required")
-  .max(10000),
+  .required("Content is required"),
 
  isPublished: yup.
  boolean()

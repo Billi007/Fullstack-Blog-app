@@ -24,9 +24,9 @@ const {user} = useContext(UserContext)
   if(!user) return <p>Please login to view liked blogs.</p>
 
   return (
-    <div className='flex justify-between flex-wrap gap-6 p-6 mt-16'>
+    <div className='flex justify-between flex-wrap gap-6 py-32 px-10'>
       {likedBlogs.length == 0 ? (
-        <p>No liked blogs yet!</p>
+        <p className='m-auto grid items-center mt-[20%]'>No liked blogs yet!</p>
       )
       : (
       likedBlogs.map((blog) => (

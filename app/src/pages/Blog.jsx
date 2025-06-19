@@ -10,11 +10,13 @@ import { DeleteBlog } from "../utils/DeleteBlog";
 
 const Blog = () => {
   const [blog, setBlog] = useState([]);
-  const {user, setUser} = useContext(UserContext);
+  const {user} = useContext(UserContext);
   const {id} = useParams();
   const navigate = useNavigate()
-  console.log("blog", blog);
-  console.log("user", user)
+
+
+  //console.log("blog", blog);
+  //console.log("user", user)
 
   useEffect(() => {
     const fetchBlog = async function () {
@@ -33,6 +35,7 @@ const Blog = () => {
   }, []);
 
   
+    
 
   return (
     <div className="p-5 max-w-[900px] flex flex-col justify-center m-auto py-24 items-center space-y-10">
@@ -61,7 +64,8 @@ const Blog = () => {
           </div>
         </div>
               <div>
-              <button className="text-2xl cursor-pointer">
+              <button 
+              className="text-2xl cursor-pointer">
                <MdEditCalendar />
               </button>
    
@@ -83,11 +87,11 @@ const Blog = () => {
 
       <div className="space-y-10">
         <h1 className="text-4xl font-bold">{blog.title}</h1>
-        <p className="text-black text-lg font-serif">{blog.description}</p>
+        <p className="text-black dark:text-white text-lg font-serif">{blog.description}</p>
 
         <p 
         dangerouslySetInnerHTML={{ __html: blog.content }}
-        className="text-gray-700 text-lg font-serif space-y-4">
+        className="text-gray-700 dark:text-gray-300 text-lg font-serif space-y-4">
         </p>
       </div>
     </div>

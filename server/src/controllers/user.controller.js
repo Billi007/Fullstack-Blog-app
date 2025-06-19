@@ -10,11 +10,13 @@ const getAllUsers = async function (req, res) {
   try {
     const users = await User.find()
       .sort({ createdAt: -1 })
-      .select("-password -confirmPassword -refreshToken --v")
+      .select("-password -confirmPassword -refreshToken -__v")
       .lean();
+
     if (!users?.length) {
       throw new APIError(401, "No users found! ", []);
     }
+    
    res.json( new APIResponse(200, { count: users.length, data: users }), "All users fetched succeefully!");
   } catch (error) {
     throw new APIError(500, "Failed to fetch users! " + error.message);
@@ -123,12 +125,12 @@ const updateUser = async function (req, res) {
 };
 
 //Delete user
-const deleteUser = async function name(req, res) {
-  try {
-    await User.findByIdAndDelete(req.params.id);
-    res.json(new APIResponse(200, [], "User has been deleted! "));
-  } catch (error) {
-    throw new APIError(500, "Failed to delete user! " + error.message);
-  }
-};
-export { updateUser, deleteUser, getAllUsers, getUser, adminDeleteUser };
+// const deleteUser = async function name(req, res) {
+//   try {
+//     await User.findByIdAndDelete(req.params.id);
+//     res.json(new APIResponse(200, [], "User has been deleted! "));
+//   } catch (error) {
+//     throw new APIError(500, "Failed to delete user! " + error.message);
+//   }
+// };
+export { updateUser,getAllUsers, getUser, adminDeleteUser };

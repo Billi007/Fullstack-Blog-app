@@ -17,7 +17,7 @@ const Navbar = () => {
   //const [toggleNav, setToggleNav] = useState(false)
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext);
-  console.log(user)
+  //console.log(user)
 
 
   const defaultAvatar = "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png";
@@ -39,6 +39,10 @@ const Navbar = () => {
 
   const logout = async () => {
     try {
+
+    const confirm = window.confirm('Are you sure you want to logout?')
+    if(!confirm) return;
+
       const res = await axios.post(
         "http://localhost:4000/api/v1/auth/logout",
         {},

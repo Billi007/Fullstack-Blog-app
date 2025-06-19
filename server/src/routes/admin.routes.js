@@ -17,7 +17,7 @@ router.get('/blogcounts', verifyJWT, verifyAdmin, getBlogVisibilityCounts)
 //Users
 //get all users
 router.get('/users', verifyJWT, verifyAdmin, getAllUsers)
-router.delete('/delete/:id', verifyJWT, verifyAdmin, adminDeleteUser)   
+router.delete('/delete/:id', verifyJWT,adminDeleteUser)   
 
 
 export default router
