@@ -27,10 +27,6 @@ const adminDeleteUser = async (req,res) => {
   const userId = req.params.id;
 
   try {
-    if(!req.user.isAdmin){
-      throw new APIError(403, "Unauthorized: Only admins can delete users")
-    }
-
     const userToDelete = await User.findById(userId);
     if(!userToDelete){
       throw new APIError(403, "No user found!")
@@ -43,7 +39,7 @@ const adminDeleteUser = async (req,res) => {
       new APIResponse(201, null, "User and all associated data deleted successfully")
     )
   } catch (error) {
-    throw new APIError(501, "Failed to delete everything", error.message)
+    throw new APIError(501, "Failed to delete User", error.message)
   }
 }
   

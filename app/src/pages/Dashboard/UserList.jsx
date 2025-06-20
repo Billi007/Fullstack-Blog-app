@@ -1,13 +1,15 @@
 import { MdDeleteOutline } from "react-icons/md";
 import { DeleteUser } from '../../utils/DeleteUser'
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { UserContext } from "../../context/UserContext";
 
 const UserList = () => {
   const [users, setUsers] = useState([])
   const navigate = useNavigate()
+  const {user} = useContext(UserContext)
   //console.log('hello', user.user)
 
   useEffect(() => {
@@ -17,19 +19,19 @@ const UserList = () => {
       setUsers(res.data.data.data)
       //console.log("ress",res.data.data.data)
       } catch (error) {
-        toast.error('Failed to fetch users!')
+        toast.error('Failed to fetch users!', error.message)
         console.log("Error fetching users", error.message)
       }
     };
 
     fetchUsers()
-  },[])
+  },[user, navigate])
 
 
  return (
  <div className=" overflow-x-auto rounded-box border-base-content/5 pt-28 px-10">
   <div>
-    <h1 className='text-3xl dark:text-white mb-5'>Total Users</h1>
+    <h1 className='text-3xl dark:text-white mb-5 font-semibold'>Total Users</h1>
   </div>
   <table className="table">
     <thead>

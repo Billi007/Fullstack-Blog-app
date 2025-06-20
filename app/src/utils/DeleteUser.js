@@ -27,7 +27,7 @@ export const DeleteUser = async function(id, navigate){
     navigate('/')
 
     } catch (error) {
-    toast.error('Error deleting users ', error)
+    toast.error('Error deleting users ', error.message)
     }
 }
 

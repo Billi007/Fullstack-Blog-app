@@ -2,9 +2,11 @@ import { DeleteBlog } from '../../utils/DeleteBlog'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { MdDeleteOutline } from "react-icons/md";
+import { Link, useNavigate } from 'react-router-dom';
 
 const BlogList = () => {
-    const [blogs, setBlogs] = useState([])
+    const [blogs, setBlogs] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
     const fetchBlogs = async function(){
@@ -20,7 +22,7 @@ const BlogList = () => {
   return (
     <div className="overflow-x-auto rounded-box border-base-content/5 py-24 px-10">
   <div>
-    <h1 className='text-3xl dark:text-white mb-5'>Total Blogs</h1>
+    <h1 className='text-3xl dark:text-white mb-5 font-semibold '>Total Blogs</h1>
   </div>
   <table className="table">
     {/* head */}
@@ -40,12 +42,12 @@ const BlogList = () => {
         
     {blogs.map((blog) => (
       <tr key={blog._id} className='border-b-[0.5px] border-gray-300 dark:border-slate-800'>
-        <td>{blog.title} </td>
+        <td className='hover:underline'><Link to={`/blog/${blog._id}`}>{blog.title}</Link> </td>
         {/* <td>{blog.description} </td> */}
         <td>{blog.author?.username || 'N/A'} </td>
         <td>{new Date(blog.createdAt).toLocaleDateString()} </td>
-        <td className='text-green-600'>Visible</td>
-        <td className='text-center text-xl' onClick={DeleteBlog}><MdDeleteOutline /> </td>
+        <td>{blog.isVisible === false ? (<p className='text-red-600'>Hidden</p>) : (<p className='text-green-500'>Visible</p>)} </td>
+        <td className='text-center text-xl' onClick={() => DeleteBlog(blog._id, navigate)}><MdDeleteOutline /> </td>
       </tr>
         ))}
     </tbody>

@@ -36,8 +36,12 @@ const Home = () => {
   return (
     <>
      <div className='flex flex-wrap justify-center items-center gap-10 px-10 py-28'>
-      {
-        blogs.map((blog) => (
+      {blogs.filter((blog) => blog.isVisible).length === 0 ? (
+       <p className="text-xl text-gray-500 dark:text-gray-300">No blogs found.</p>
+      ): 
+      (blogs
+      .filter((blog) => blog.isVisible)
+      .map((blog) => (
           <div>
             <BlogCard 
             key={blog._id} 
@@ -48,7 +52,7 @@ const Home = () => {
             />
           </div>
         ))
-      }
+      )}
 
      </div>
     </>

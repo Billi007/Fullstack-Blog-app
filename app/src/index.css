@@ -3,7 +3,7 @@
 @plugin "daisyui";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* @custom-variant light (&:is(.dark *)); */
+/* @custom-variant light (&:is(.dark *)); * */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

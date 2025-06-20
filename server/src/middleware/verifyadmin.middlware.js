@@ -4,12 +4,14 @@ import APIError from "../utils/APIError.js"
 const verifyAdmin = async function(req,res,next){
     const userId = req.user._id
     try {
-    const user = User.findById(userId)
+    const user = await User.findById(userId)
     if(!user || user.role !== 'admin'){
       throw new APIError(403, "Unauthorized: Admin access required")
-    }next()
+    }
+    next();
+
     } catch (error) {
-      throw new APIError(403, "error occured in admin middleware " + error.message)
+    next(new APIError(403, "error occured in admin middleware " + error.message))
     }
 }
 

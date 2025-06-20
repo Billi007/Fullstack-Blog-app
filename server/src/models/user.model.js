@@ -35,10 +35,10 @@ const UserSchema = new Schema(
         "Password must be at least 6 characters with at least one letter and one number",
       ],
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
-    },
+    // isAdmin: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     likedBlogs: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'blog',

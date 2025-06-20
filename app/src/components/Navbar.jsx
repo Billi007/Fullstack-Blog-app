@@ -64,7 +64,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full bg-white dark:bg-black shadow-md fixed top-0 z-50">
-        <div className="navbar shadow-sm bg-white dark:bg-black px-16">
+        <div className="navbar shadow-sm bg-white dark:bg-black px-5">
         <div className="flex-1">
           <div className="btn-ghost text-xl text-blue-500 dark:text-blue-300">TheDailyBlogs</div>
         </div>
@@ -118,6 +118,7 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
+                  <Link to={`profile/${user?.user?._id}`}>
                   <img
                     alt={ 'User Avtar'}
                     src={user?.user?.avtar || defaultAvatar}
@@ -127,6 +128,7 @@ const Navbar = () => {
                     }}
                     loading="lazy"
                   />
+                  </Link>
                 </div>
               </div>
             </li>
