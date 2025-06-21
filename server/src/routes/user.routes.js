@@ -11,6 +11,6 @@ router.get('/all', verifyJWT, getAllUsers)
 router.delete('/delete/:id', verifyJWT, verifyAdmin, adminDeleteUser)
 //for users
 router.get('/:id', verifyJWT, getUser)
-router.put('/update/:userId', verifyJWT, upload.single('avtar'), updateUser)
+router.put('/update/:id', verifyJWT, upload.single('avtar'), updateUser)
 
 export default router;

@@ -111,6 +111,9 @@ const login = async (req,res) => {
       throw new APIError(401, "Invalid user credentials!")
    }
 
+   user.lastLogin = new Date();
+   await user.save();
+
    //get refresh and access token
    const {refreshToken, accessToken} = await generateAccessAndRefreshToken(user._id);
 

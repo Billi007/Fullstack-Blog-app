@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(() => {
@@ -64,7 +65,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full bg-white dark:bg-black shadow-md fixed top-0 z-50">
-        <div className="navbar shadow-sm bg-white dark:bg-black px-5">
+        <div className="navbar shadow-sm bg-white dark:bg-black px-8">
         <div className="flex-1">
           <div className="btn-ghost text-xl text-blue-500 dark:text-blue-300">TheDailyBlogs</div>
         </div>
@@ -83,10 +84,10 @@ const Navbar = () => {
 
         
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-2">
+          <ul className="menu menu-horizontal px-2 items-center">
             <li>
               <details>
-                <summary className="text-lg px-5">menu</summary>
+                <summary className="text-xl px-5"><RxHamburgerMenu /></summary>
                 <ul className=" bg-white dark:bg-black w-32">
                   <li>
                     <Link to={"/"} className="hover:bg-red-50 hover:dark:bg-gray-900">

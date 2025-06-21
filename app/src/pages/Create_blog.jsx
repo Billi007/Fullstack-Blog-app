@@ -113,7 +113,7 @@ const Create_blog = () => {
         )}
 
   <legend className="fieldset-legend text-black dark:text-white text-sm">Content</legend>
-    <div>
+    <div className='dark:text-black'>
       <JoditEditor
         ref={editor}
         config={config}

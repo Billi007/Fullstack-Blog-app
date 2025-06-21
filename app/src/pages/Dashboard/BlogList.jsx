@@ -22,10 +22,10 @@ const BlogList = () => {
   return (
     <div className="overflow-x-auto rounded-box border-base-content/5 py-24 px-10">
   <div>
-    <h1 className='text-3xl dark:text-white mb-5 font-semibold '>Total Blogs</h1>
+    <h1 className='text-3xl dark:text-white mb-5 font-semibold '>Total Blogs ({blogs.length})</h1>
   </div>
-  <table className="table">
-    {/* head */}
+   <div className='max-h-[300px] overflow-y-auto'>
+    <table className="table w-full">
     <thead>
       <tr className='bg-gray-100 text-gray-900 dark:text-gray-100 dark:bg-slate-900'>
        
@@ -38,7 +38,6 @@ const BlogList = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
         
     {blogs.map((blog) => (
       <tr key={blog._id} className='border-b-[0.5px] border-gray-300 dark:border-slate-800'>
@@ -52,6 +51,7 @@ const BlogList = () => {
         ))}
     </tbody>
   </table>
+   </div>
 </div>
   )
 }

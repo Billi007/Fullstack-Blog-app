@@ -60,6 +60,10 @@ const UserSchema = new Schema(
       },
       message: "Passwords do not match!",
     },
+    lastLogin: {
+      type: Date,
+      default: null
+    }
   },
   { timestamps: true }
 );

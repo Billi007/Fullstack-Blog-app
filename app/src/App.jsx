@@ -16,7 +16,7 @@ function App() {
   const Blog = lazy(() => import('./pages/Blog'))
   const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'))
   const Profile = lazy(() => import('./pages/Profile'))
-  const HiddenBlogs = lazy(() => import('./pages/HiddenBlogs'))
+  //const HiddenBlogs = lazy(() => import('./pages/HiddenBlogs'))
 
   const {user} = useContext(UserContext)
 
@@ -44,7 +44,7 @@ function App() {
      <Route path='/dashboard' element={<PrivateRoutes><Dashboard/></PrivateRoutes>} />
      <Route path='/blog/liked' element={<PrivateRoutes><LikedBlogs/> </PrivateRoutes>} />
      <Route path='/profile/:id' element={<PrivateRoutes><Profile/> </PrivateRoutes>} />
-     <Route path='/blog/hidden/:id' element={<PrivateRoutes><HiddenBlogs/> </PrivateRoutes>} />
+     {/* <Route path='/blog/hidden/:id' element={<PrivateRoutes><HiddenBlogs/> </PrivateRoutes>} /> */}
     </Routes>
     </Suspense>
     </>

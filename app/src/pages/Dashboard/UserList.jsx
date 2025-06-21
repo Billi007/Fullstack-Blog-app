@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
+import { FaUserEdit } from "react-icons/fa";
 
 const UserList = () => {
   const [users, setUsers] = useState([])
@@ -31,9 +32,11 @@ const UserList = () => {
  return (
  <div className=" overflow-x-auto rounded-box border-base-content/5 pt-28 px-10">
   <div>
-    <h1 className='text-3xl dark:text-white mb-5 font-semibold'>Total Users</h1>
+    <h1 className='text-3xl dark:text-white mb-5 font-semibold'>Total Users ({users.length})</h1>
   </div>
-  <table className="table">
+
+   <div className="max-h-[300px] overflow-y-auto">
+    <table className="table">
     <thead>
       <tr className='bg-gray-100 text-gray-900 dark:text-gray-100 dark:bg-slate-900'>
        
@@ -50,11 +53,13 @@ const UserList = () => {
         
       <td>{user.username}</td>
       <td>{user.email}</td>
-      <td>last login</td>
+      <td>{user.lastLogin ? new Date(user.lastLogin).toLocaleString() : "Never"} </td>
       <td className='text-green-500'>Visible</td>
-      <td className='text-center text-xl' 
+      <td className='text-center text-xl flex gap-5' 
       onClick={() => DeleteUser(user._id, navigate)}>
-      <MdDeleteOutline /> </td>
+      <MdDeleteOutline /> 
+      <div><FaUserEdit /></div>
+        </td>
       </tr>
     ))
     }
@@ -62,6 +67,7 @@ const UserList = () => {
       
     </tbody>
   </table>
+   </div>
 </div>
 
   )

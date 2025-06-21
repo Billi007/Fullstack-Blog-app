@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+
 import { UserContext } from '../context/UserContext';
 import React, { useContext } from 'react'
+import { FaUserEdit } from "react-icons/fa";
 
 const Profile = () => {
 const {user} = useContext(UserContext)
@@ -18,13 +19,11 @@ const defaultAvatar = "https://images.icon-icons.com/1378/PNG/512/avatardefault_
      </div>
     
     <div>
+    <div className='text-2xl cursor-pointe py-5'><FaUserEdit /></div>
      <p>{user?.user?.username}</p>
      <p>{user?.user?.email}</p>
      <p>role : {user?.user?.role}</p>
      <p>{new Date(user?.user?.createdAt).toLocaleDateString()}</p>
-     <p className='hover:underline'>
-      <Link to={`blog/hidden`}>Hidden Blogs</Link>
-     </p>
     </div>
     </div>
     </div>

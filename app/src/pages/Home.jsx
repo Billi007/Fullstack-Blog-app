@@ -5,10 +5,9 @@ import { UserContext } from '../context/UserContext';
 import axios from 'axios';
 
 const Home = () => {
-   const [blogs, setBlogs] = useState([])
-    const {user, setUser} = useContext(UserContext);
+   const [blogs, setBlogs] = useState([]);
+   const {user, setUser} = useContext(UserContext);
    //console.log("blog", blogs)
-
 
     useEffect(() => {
     const fetchAllBlogs = async () => {
@@ -35,7 +34,7 @@ const Home = () => {
 
   return (
     <>
-     <div className='flex flex-wrap justify-center items-center gap-10 px-10 py-28'>
+     <div className='flex flex-wrap justify-center items-center  gap-x-10 gap-y-10 px-10 py-28'>
       {blogs.filter((blog) => blog.isVisible).length === 0 ? (
        <p className="text-xl text-gray-500 dark:text-gray-300">No blogs found.</p>
       ): 
